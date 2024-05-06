@@ -1,4 +1,5 @@
-# 南京大学学位论文 modern-nju-thesis
+# ~~南京~~燕山大学本科论文 modern-ysu-thesis
+目前还在施工中
 
 南京大学毕业论文（设计）的 Typst 模板，能够简洁、快速、持续生成 PDF 格式的毕业论文。[Typst Universe](https://typst.app/universe/package/modern-nju-thesis)
 
