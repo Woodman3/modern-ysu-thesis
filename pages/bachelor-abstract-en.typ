@@ -13,22 +13,15 @@
   info: (:),
   // 其他参数
   keywords: (),
-  outline-title: "ABSTRACT",
-  outlined: false,
+  outline-title: "Abstract",
+  outlined: true,
   anonymous-info-keys: ("author-en", "supervisor-en", "supervisor-ii-en"),
-  leading: 1.28em,
+  leading: 22pt,
   spacing: 1.38em,
   body,
 ) = {
   // 1.  默认参数
   fonts = 字体 + fonts
-  info = (
-    title-en: "NJU Thesis Template for Typst",
-    author-en: "Zhang San",
-    department-en: "XX Department",
-    major-en: "XX Major",
-    supervisor-en: "Professor Li Si",
-  ) + info
 
   // 2.  对参数进行处理
   // 2.1 如果是字符串，则使用换行符将标题分隔为列表
@@ -53,31 +46,22 @@
 
     // 标记一个不可见的标题用于目录生成
     #invisible-heading(level: 1, outlined: outlined, outline-title)
-
     #align(center)[
-      #set text(size: 字号.小二, weight: "bold")
-
+      #set text(size: 字号.小二)
       #v(1em)
-
-      #double-underline[#fakebold[南京大学本科生毕业论文（设计、作品）英文摘要]]
+      Abstract
+      #v(0.8em)
+    ]
+    #[
+      #set par(first-line-indent: 2em)
+      #fake-par
+      #body
     ]
 
-    #v(2pt)
-
-    THESIS: #info-value("title-en", (("",)+ info.title-en).sum())
-
-    DEPARTMENT: #info-value("department-en", info.department-en)
-
-    SPECIALIZATION: #info-value("major-en", info.major-en)
-
-    UNDERGRADUATE: #info-value("author-en", info.author-en)
-
-    MENTOR: #info-value("supervisor-en", info.supervisor-en) #(if info.supervisor-ii-en != "" [#h(1em) #info-value("supervisor-ii-en", info.supervisor-ii-en)])
-
-    ABSTRACT: #body
-
     #v(1em)
-
-    KEYWORDS: #(("",)+ keywords.intersperse("; ")).sum()
+    #grid(columns: (auto,auto),
+    text(weight: "bold")[Keywords:],
+    (("",)+ keywords.intersperse("; ")).sum()
+    )
   ]
 }

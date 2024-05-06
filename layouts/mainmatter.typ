@@ -15,15 +15,15 @@
   spacing: 1.5 * 15.6pt - 0.7em,
   justify: true,
   first-line-indent: 2em,
-  numbering: custom-numbering.with(first-level: "第一章 ", depth: 4, "1.1 "),
+  numbering: custom-numbering.with(first-level: "第1章 ", depth: 4, "1.1 "),
   // 正文字体与字号参数
   text-args: auto,
   // 标题字体与字号
   heading-font: auto,
-  heading-size: (字号.四号,),
+  heading-size: (字号.小二, 字号.小三,字号.四号,字号.小四),
   heading-weight: ("regular",),
-  heading-above: (2 * 15.6pt - 0.7em, 2 * 15.6pt - 0.7em),
-  heading-below: (2 * 15.6pt - 0.7em, 1.5 * 15.6pt - 0.7em),
+  heading-above: (33pt, 11pt*1.5,11pt*1.5,11pt),
+  heading-below: (22pt*0.8,11pt*1.5,11pt*1.5,11pt),
   heading-pagebreak: (true, false),
   heading-align: (center, auto),
   // 页眉

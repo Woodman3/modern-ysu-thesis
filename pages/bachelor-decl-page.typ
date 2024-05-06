@@ -25,48 +25,42 @@
     info.title = info.title.split("\n")
   }
 
-
+  set text(font: fonts.宋体, size: 字号.小四)
+  set par(leading: 12pt,first-line-indent: 2em)
   // 3.  正式渲染
   pagebreak(weak: true, to: if twoside { "odd" })
 
-  v(6pt)
+  v(1em)
 
-  align(center, image("../assets/vi/nju-emblem-purple.svg", width: 1.95cm))
+  align(center,text(font: fonts.黑体, size: 字号.三号, "学位论文原创性声明"))
 
-  v(-12pt)
+  v(字号.三号)
 
-  align(
-    center,
-    text(
-      font: fonts.黑体,
-      size: 字号.小一,
-      weight: "bold",
-      "南京大学本科毕业论文（设计）\n诚信承诺书",
-    ),
-  )
+  [
+    郑重声明：所呈交的学位论文《#info.title.sum()》，是本人在导师的指导下，独立进行研究取得的成果。除文中已经注明引用的内容外，本论文不包括他人或集体已经发表或撰写过的作品成果。对本文的研究做出贡献的个人和集体，均已在文中以明确方式标明。本人完全意识到本声明的法律后果，并承诺因本声明而产生的法律结果由本人承担。
+  ]
+  v(1em)
+  [学位论文作者签名：                 日期：    年    月    日] 
+  v(3em)
+  
+  align(center,text(font: fonts.黑体, size: 字号.三号, "学位论文版权使用授权书"))
 
-  v(48pt)
-
-  block[
-    #set text(font: fonts.宋体, size: 字号.小三)
-    #set par(justify: true, first-line-indent: 2em, leading: 2.42em)
-
-    #indent 本人郑重承诺：所呈交的毕业论文（设计）（题目：#info.title.sum()）是在指导教师的指导下严格按照学校和院系有关规定由本人独立完成的。本毕业论文（设计）中引用他人观点及参考资源的内容均已标注引用，如出现侵犯他人知识产权的行为，由本人承担相应法律责任。本人承诺不存在抄袭、伪造、篡改、代写、买卖毕业论文（设计）等违纪行为。
+  v(字号.小三)
+  
+  [
+    本学位论文作者完全了解学校有关保留、使用学位论文的规定，同意学校保留并向国家有关部门或机构送交论文的复印件和电子版，允许论文被查阅和借阅。本人授权燕山大学将本学位论文的全部或部分内容编入有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存和汇编本学位论文。
   ]
 
-  v(76pt)
-
-  grid(
-    columns: (1fr, 150pt),
-    [],
-    align(left)[
-      #set text(font: fonts.黑体, size: 字号.小三)
-      
-      作者签名：
-
-      学号：
-
-      日期：
-    ]
-  )
+  v(1em)
+  // typst 中第一行不会缩进，所以需要手动缩进
+  [#h(8em) 保  密，在__年解密后适用本授权书。]
+  linebreak()
+  [#indent 本学位论文属于]
+  linebreak()
+  [#indent #h(8em) 不保密。请在以上相应方框内打“√”] 
+  v(1em) 
+  [学位论文作者签名：                 日期：    年    月    日]
+  v(1em)
+  [指导教师签名：                     日期：    年    月    日]
+  v(1em)
 }

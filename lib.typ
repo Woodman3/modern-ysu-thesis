@@ -10,6 +10,7 @@
 #import "layouts/appendix.typ": appendix
 #import "pages/fonts-display-page.typ": fonts-display-page
 #import "pages/bachelor-cover.typ": bachelor-cover
+#import "pages/bachelor-detail.typ": bachelor-detail
 #import "pages/master-cover.typ": master-cover
 #import "pages/bachelor-decl-page.typ": bachelor-decl-page
 #import "pages/master-decl-page.typ": master-decl-page
@@ -160,6 +161,16 @@
           info: info + args.named().at("info", default: (:)),
         )
       }
+    },
+
+    detail: (..args) => {
+      bachelor-detail(
+          anonymous: anonymous,
+          twoside: twoside,
+          ..args,
+          fonts: fonts + args.named().at("fonts", default: (:)),
+          info: info + args.named().at("info", default: (:)),
+      )
     },
 
     // 声明页，通过 type 分发到不同函数
