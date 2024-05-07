@@ -131,5 +131,4 @@
   v(字号.小四*5)
   set align(center)
   text(font:字体.宋体,size:字号.小二,weight: "bold",info.submit-date)
-  pagebreak()
 }

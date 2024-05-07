@@ -77,6 +77,8 @@
       }
     )
   }
+  
+  pagebreak(weak: true,to:"odd")
   v(字号.小四*4)
   set align(center)
   fakebold(text(font:fonts.宋体,size:字号.小二,weight:"bold")[燕山大学本科生毕业设计（论文）])

@@ -2,7 +2,7 @@
 
 #let (
   // 布局函数
-  twoside, doc, preface, mainmatter, mainmatter-end, appendix,
+  twoside, doc, preface,page-header, mainmatter, mainmatter-end, appendix,
   // 页面函数
   fonts-display-page, cover,detail, decl-page, abstract, abstract-en, bilingual-bibliography,
   outline-page, list-of-figures, list-of-tables, notation, acknowledgement,
@@ -47,10 +47,10 @@
 // 声明页
 #decl-page()
 
-
 // 前言
 #show: preface
 
+#show: page-header
 // 中文摘要
 #abstract(
   keywords: ("我", "就是", "测试用", "关键词","需要","更多","更多","更多","更多","更多","关键词","来测试")
@@ -77,6 +77,7 @@
 
 // 正文
 #show: mainmatter
+#show: page-header
 
 // 符号表
 // #notation[

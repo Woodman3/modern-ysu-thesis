@@ -28,7 +28,7 @@
   set text(font: fonts.宋体, size: 字号.小四)
   set par(leading: 12pt,first-line-indent: 2em)
   // 3.  正式渲染
-  pagebreak(weak: true, to: if twoside { "odd" })
+  pagebreak(weak: true, to: "odd" )
 
   v(1em)
 
@@ -65,4 +65,5 @@
   v(1em)
   [指导教师签名：~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~日期：~~~~年~~~~月~~~~日]
   v(1em)
+
 }
