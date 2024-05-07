@@ -14,7 +14,7 @@
   // 可自定义字体，先英文字体后中文字体，应传入「宋体」、「黑体」、「楷体」、「仿宋」、「等宽」
   // fonts: (楷体: ("Times New Roman", "FZKai-Z03S")),
   info: (
-    title: ("不是，哥们 ni"),
+    title: ("不是，哥们，这登龙能空的啊"),
     title-en: "My Title in English",
     grade: "20XX",
     student-id: "1234567890",

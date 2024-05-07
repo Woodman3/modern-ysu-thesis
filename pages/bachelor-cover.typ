@@ -1,5 +1,6 @@
 #import "../utils/datetime-display.typ": datetime-display
 #import "../utils/style.typ": 字号, 字体
+#import "../utils/custom-cuti.typ": fakebold
 
 // 本科生封面
 #let bachelor-cover(
@@ -13,7 +14,7 @@
   min-title-lines: 2,
   info-inset: (x: 0pt, bottom: 1pt),
   info-key-width: 72pt,
-  info-key-font: "楷体",
+  info-key-font: "黑体",
   info-value-font: "楷体",
   column-gutter: 22pt,
   row-gutter: 11.5pt,
@@ -106,16 +107,16 @@
   
   // 居中对齐
   set align(center)
-  image("../assets/vi/ysulogo.png", width:100% )
+  image("../assets/vi/ysulogo.png", height: 1.86cm,width: 6.33cm )
   v(18pt) 
-  text(size: 字号.小初, font: fonts.黑体,weight: "bold")[本科毕业设计（论文）]
+  fakebold(text(size: 字号.小初, font: fonts.黑体)[本科生毕业设计（论文）])
   v(32pt*2)
-  grid(columns: (auto, auto),
-  column-gutter: 10pt,
-  text(size: 字号.小二, font: fonts.黑体, weight: "bold", "论文题目"),
-  text(size: 字号.小二, font: fonts.楷体, weight: "regular", info.title.at(0)),
-  )
-  v(22.35pt*5*1.25 - 134pt)
+  set align(left)
+  set par(leading: 2em, justify: true)
+  text(size: 字号.小二, font: fonts.黑体, weight: "bold", "论文题目")
+  h(column-gutter)
+  text(size: 字号.小二, font: fonts.楷体, weight: "regular", info.title.at(0))
+  v(22.35pt*5*1.25 )
   block(grid(
     columns: (info-key-width, 1fr, info-key-width, 1fr),
     column-gutter: column-gutter,
@@ -124,12 +125,11 @@
     info-long-value("author", info.author),
     info-key("专　　业"),
     info-long-value("major", info.major),
-    info-key("题　　目"),
-    // ..info.title.map((s) => info-value("title", s)).intersperse(info-key("　")),
-    info-long-value("title", info.title.at(0)),
+    info-key("指导教师"),
+    info-long-value("supervisor", info.supervisor.sum()),
   ))
   v(字号.小四*5)
-  // align(center,info-long-value("submit-date", info.submit-date))
-  text(font:字体.宋体,size:字号.小二,info.submit-date)
+  set align(center)
+  text(font:字体.宋体,size:字号.小二,weight: "bold",info.submit-date)
   pagebreak()
 }
