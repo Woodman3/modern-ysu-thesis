@@ -46,11 +46,9 @@
 #detail()
 // 声明页
 #decl-page()
-
-// 前言
 #show: preface
 
-#show: page-header
+// 前言
 // 中文摘要
 #abstract(
   keywords: ("我", "就是", "测试用", "关键词","需要","更多","更多","更多","更多","更多","关键词","来测试")
@@ -223,9 +221,3 @@ $ F_n = floor(1 / sqrt(5) phi.alt^n) $
 
 === 附录子子标题
 
-
-
-
-// 正文结束标志，不可缺少
-// 这里放在附录后面，使得页码能正确计数
-#mainmatter-end()

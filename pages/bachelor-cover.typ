@@ -104,7 +104,7 @@
   
 
   // 4.  正式渲染
-  
+  pagebreak(weak:true,to:"odd" ) 
   // 居中对齐
   set align(center)
   image("../assets/vi/ysulogo.png", height: 1.86cm,width: 6.33cm )
@@ -131,4 +131,5 @@
   v(字号.小四*5)
   set align(center)
   text(font:字体.宋体,size:字号.小二,weight: "bold",info.submit-date)
+
 }

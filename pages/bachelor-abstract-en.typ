@@ -38,7 +38,7 @@
 
   // 4.  正式渲染
   [
-    #pagebreak(weak: true, to: if twoside { "odd" })
+    #pagebreak(weak: true, to: "even" )
 
     #set text(font: fonts.楷体, size: 字号.小四)
     #set par(leading: leading, justify: true)
