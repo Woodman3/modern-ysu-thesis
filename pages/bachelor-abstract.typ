@@ -3,6 +3,7 @@
 #import "../utils/indent.typ": fake-par
 #import "../utils/double-underline.typ": double-underline
 #import "../utils/invisible-heading.typ": invisible-heading
+#import "../utils/custom-heading.typ": header-display
 
 // 本科生中文摘要页
 #let bachelor-abstract(
@@ -35,9 +36,9 @@
     }
   }
 
+
   // 4.  正式渲染
   pagebreak(weak: true,to:"odd" )
-  
   [
     
     #set text(font: fonts.宋体, size: 字号.小四)

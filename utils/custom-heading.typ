@@ -1,3 +1,4 @@
+#import "../utils/style.typ": 字号, 字体
 // 展示一个标题
 #let heading-display(it) = {
   if it != none {
@@ -47,4 +48,15 @@
   } else {
     return none
   }
+}
+
+#let header-display(body) = {
+  set text(font: 字体.楷体, size: 字号.五号)
+  stack(
+    align(center,body),
+    stack(
+      spacing: 1.4pt,
+      line(length: 100%, stroke: 0.5pt+0.3pt + black),
+      line(length: 100%, stroke: 0.5pt + black))
+  )
 }

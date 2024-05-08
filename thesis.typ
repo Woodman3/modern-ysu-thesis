@@ -75,7 +75,7 @@
 
 // 正文
 #show: mainmatter
-#show: page-header
+// #show: page-header
 
 // 符号表
 // #notation[

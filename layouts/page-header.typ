@@ -1,8 +1,6 @@
-#import "@preview/i-figured:0.2.4"
 #import "../utils/style.typ": 字号, 字体
 #import "../utils/custom-numbering.typ": custom-numbering
-#import "../utils/custom-heading.typ": heading-display, active-heading, current-heading
-#import "../utils/indent.typ": fake-par
+#import "../utils/custom-heading.typ": heading-display, active-heading, current-heading,header-display
 #import "../utils/unpairs.typ": unpairs
 
 #let page-header(
@@ -29,28 +27,18 @@
         }
         locate(loc => {
           // 5.1 获取当前页面的一级标题
-          let cur-heading = current-heading(level: 1, loc)
-            if header-render == auto {
-              let first-level-heading = if calc.rem(loc.page(), 2)==1 {
-                  heading-display(active-heading(level: 1,prev:false, loc)) 
-              } else {
-                "燕山大学本科生毕业设计（论文）" 
-              }
-              set text(font: fonts.楷体, size: 字号.五号)
-              stack(
-                align(center,first-level-heading),
-                if first-level-heading != "" {
-                  stack(
-                    spacing: 1.4pt,
-                    line(length: 100%, stroke: stroke-width+0.3pt + black),
-                    line(length: 100%, stroke: stroke-width + black))
-                   },
-
-              )
+          if header-render == auto {
+            // let cur-heading = current-heading(level: 1, loc)
+            let first-level-heading = if calc.rem(loc.page(), 2)==1 {
+                heading-display(active-heading(level: 1,prev:false, loc)) 
             } else {
-              header-render(loc)
+              "燕山大学本科生毕业设计（论文）" 
             }
-            v(header-vspace)
+            header-display(first-level-heading)
+          } else {
+            header-render(loc)
+          }
+          v(header-vspace)
         })
       }
     )

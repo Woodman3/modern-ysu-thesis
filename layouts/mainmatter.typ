@@ -1,7 +1,7 @@
 #import "@preview/i-figured:0.2.4"
 #import "../utils/style.typ": 字号, 字体
 #import "../utils/custom-numbering.typ": custom-numbering
-#import "../utils/custom-heading.typ": heading-display, active-heading, current-heading
+#import "../utils/custom-heading.typ": heading-display, active-heading, current-heading,header-display
 #import "../utils/indent.typ": fake-par
 #import "../utils/unpairs.typ": unpairs
 
@@ -127,52 +127,29 @@
   }
 
   // 5.  处理页眉
-  // set page(..(if display-header {
-  //   (
-  //     header: {
-  //       // 重置 footnote 计数器
-  //       if reset-footnote {
-  //         counter(footnote).update(0)
-  //       }
-  //       locate(loc => {
-  //         // 5.1 获取当前页面的一级标题
-  //         let cur-heading = current-heading(level: 1, loc)
-  //         // 5.2 如果当前页面没有一级标题，则渲染页眉
-  //         // 我改了下，有也渲染
-  //           if header-render == auto {
-  //             let first-level-heading = if calc.rem(loc.page(), 2)==1 {
-  //                 heading-display(active-heading(level: 1,prev:false, loc)) 
-  //             } else {
-  //               "燕山大学本科生毕业设计（论文）" 
-  //             }
-  //             set text(font: fonts.楷体, size: 字号.五号)
-  //             stack(
-  //               align(center,first-level-heading),
-  //               if first-level-heading != "" {
-  //                 stack(
-  //                   spacing: 1.4pt,
-  //                   line(length: 100%, stroke: stroke-width+0.3pt + black),
-  //                   line(length: 100%, stroke: stroke-width + black))
-  //                  },
-
-  //             )
-  //           } else {
-  //             header-render(loc)
-  //           }
-  //           v(header-vspace)
-  //       })
-  //     }
-  //   )
-  // } else {
-  //   (
-  //     header: {
-  //       // 重置 footnote 计数器
-  //       if reset-footnote {
-  //         counter(footnote).update(0)
-  //       }
-  //     }
-  //   )
-  // }))
+  set page(..(if display-header {
+    (
+      header: {
+        locate(loc => {
+          // 5.1 获取当前页面的一级标题
+          let cur-heading = current-heading(level: 1, loc)
+          // 5.2 如果当前页面没有一级标题，则渲染页眉
+          // 我改了下，有也渲染
+            if header-render == auto {
+              let first-level-heading = if calc.rem(loc.page(), 2)==0 {
+                  heading-display(active-heading(level: 1,prev:false, loc)) 
+              } else {
+                "燕山大学本科生毕业设计（论文）" 
+              }
+              header-display(first-level-heading)
+            } else {
+              header-render(loc)
+            }
+            v(header-vspace)
+        })
+      }
+    )
+  }))
   set page(numbering: "1",footer: [
     #set align(center)
     #counter(page).display("-1-")
