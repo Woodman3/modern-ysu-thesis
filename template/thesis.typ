@@ -1,13 +1,10 @@
-#import "@preview/modern-nju-thesis:0.3.3": documentclass, indent
-
-// 你首先应该安装 https://github.com/nju-lug/modern-nju-thesis/tree/main/fonts/FangZheng 里的所有字体，
-// 如果是 Web App 上编辑，你应该手动上传这些字体文件，否则不能正常使用「楷体」和「仿宋」，导致显示错误。
+#import "../lib.typ": documentclass, indent
 
 #let (
   // 布局函数
-  twoside, doc, preface, mainmatter, mainmatter-end, appendix,
+  twoside, doc, preface,page-header, mainmatter, mainmatter-end, appendix,
   // 页面函数
-  fonts-display-page, cover, decl-page, abstract, abstract-en, bilingual-bibliography,
+  fonts-display-page, cover,detail, decl-page, abstract, abstract-en, bilingual-bibliography,
   outline-page, list-of-figures, list-of-tables, notation, acknowledgement,
 ) = documentclass(
   // doctype: "bachelor",  // "bachelor" | "master" | "doctor" | "postdoc", 文档类型，默认为本科生 bachelor
@@ -17,7 +14,7 @@
   // 可自定义字体，先英文字体后中文字体，应传入「宋体」、「黑体」、「楷体」、「仿宋」、「等宽」
   // fonts: (楷体: ("Times New Roman", "FZKai-Z03S")),
   info: (
-    title: ("temp", "thesis"),
+    title: ("不是，哥们，这登龙能空的啊"),
     title-en: "My Title in English",
     grade: "20XX",
     student-id: "1234567890",
@@ -46,16 +43,15 @@
 // 封面页
 #cover()
 
+#detail()
 // 声明页
 #decl-page()
-
-
-// 前言
 #show: preface
 
+// 前言
 // 中文摘要
 #abstract(
-  keywords: ("我", "就是", "测试用", "关键词")
+  keywords: ("我", "就是", "测试用", "关键词","需要","更多","更多","更多","更多","更多","关键词","来测试")
 )[
   中文摘要
 ]
@@ -79,6 +75,7 @@
 
 // 正文
 #show: mainmatter
+// #show: page-header
 
 // 符号表
 // #notation[
@@ -86,12 +83,15 @@
 //   / DMRG: 密度矩阵重正化群密度矩阵重正化群密度矩阵重正化群 (Density-Matrix Reformation-Group)
 // ]
 
-= 导　论
-
+= 绪　论
 == 列表
-
 === 无序列表
+==== asd
+asdasd
 
+asdasda
+
+asdasd
 - 无序列表项一
 - 无序列表项二
   - 无序子列表项一
@@ -113,7 +113,7 @@
 === temp
 == 图表
 
-引用@tbl:timing，引用@tbl:timing-tlt，以及@fig:nju-logo。引用图表时，表格和图片分别需要加上 `tbl:`和`fig:` 前缀才能正常显示编号。
+引用@tbl:timing，引用@tbl:timing-tlt，以及@fig:ysu-logo。引用图表时，表格和图片分别需要加上 `tbl:`和`fig:` 前缀才能正常显示编号。
 
 #align(center, (stack(dir: ltr)[
   #figure(
@@ -143,9 +143,9 @@
 ]))
 
 #figure(
-  image("images/nju-emblem.svg", width: 20%),
+  image("..\assets\vi\ysulogo.png", width: 20%),
   caption: [图片测试],
-) <nju-logo>
+) <ysu-logo>
 
 
 == 数学公式
@@ -203,7 +203,8 @@ $ F_n = floor(1 / sqrt(5) phi.alt^n) $
 
 // 致谢
 #acknowledgement[
-  感谢 NJU-LUG，感谢 NJUThesis LaTeX 模板。
+  感谢 NJU 提供的模板
+  感谢 typst 中文社区提供的支持和帮助
 ]
 
 // 手动分页
@@ -221,14 +222,3 @@ $ F_n = floor(1 / sqrt(5) phi.alt^n) $
 
 === 附录子子标题
 
-附录内容，这里也可以加入图片，例如@fig:appendix-img。
-
-#figure(
-  image("images/nju-emblem.svg", width: 20%),
-  caption: [图片测试],
-) <appendix-img>
-
-
-// 正文结束标志，不可缺少
-// 这里放在附录后面，使得页码能正确计数
-#mainmatter-end()
