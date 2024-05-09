@@ -1,6 +1,7 @@
 #import "../utils/datetime-display.typ": datetime-display
 #import "../utils/style.typ": 字号, 字体
 #import "../utils/custom-cuti.typ": fakebold
+#import "../utils/indent.typ": fake-par,indent
 
 // 本科生封面
 #let bachelor-cover(
@@ -50,36 +51,36 @@
 
   // 3.  内置辅助函数
   let info-key(body) = {
-    rect(
-      width: 100%,
-      inset: info-inset,
-      stroke: none,
+    // rect(
+    //   width: 100%,
+    //   inset: info-inset,
+    //   stroke: none,
       text(
         font: fonts.at(info-key-font, default: "黑体"),
         size: 字号.小二,
         body
-      ),
-    )
+      )
+    // )
   }
 
   let info-value(key, body) = {
-    set align(left)
-    rect(
-      width: 100%,
-      inset: info-inset,
-      stroke: none,
+    // set align(left)
+    // rect(
+    //   width: 100%,
+    //   inset: info-inset,
+    //   stroke: none,
       text(
         font: fonts.at(info-value-font, default: "楷体"),
         size: 字号.小二,
         weight: if (key in bold-info-keys) { bold-level } else { "regular" },
         bottom-edge: "descender",
         body,
-      ),
-    )
+      )
+    // )
   }
 
   let info-long-value(key, body) = {
-    grid.cell(colspan: 3,
+    grid.cell(colspan: 1,
       info-value(
         key,
         if anonymous and (key in anonymous-info-keys) {
@@ -108,26 +109,41 @@
   // 居中对齐
   set align(center)
   image("../assets/vi/ysulogo.png", height: 1.86cm,width: 6.33cm )
-  v(18pt) 
+  v(40pt) 
   fakebold(text(size: 字号.小初, font: fonts.黑体)[本科生毕业设计（论文）])
   v(32pt*2)
   set align(left)
-  set par(leading: 2em, justify: true)
-  text(size: 字号.小二, font: fonts.黑体, weight: "bold", "论文题目")
+  // set par(leading: 2em, justify:true )
+  indent
+  text(size: 字号.小二, font: fonts.黑体, "论文题目")
   h(column-gutter)
   text(size: 字号.小二, font: fonts.楷体, weight: "regular", info.title.at(0))
   v(22.35pt*5*1.25 )
-  block(grid(
-    columns: (info-key-width, 1fr, info-key-width, 1fr),
-    column-gutter: column-gutter,
-    row-gutter: row-gutter,
-    info-key("作者姓名"),
-    info-long-value("author", info.author),
-    info-key("专　　业"),
-    info-long-value("major", info.major),
-    info-key("指导教师"),
-    info-long-value("supervisor", info.supervisor.sum()),
-  ))
+  // grid(
+  //   columns: (info-key-width,340pt),
+  //   column-gutter: column-gutter,
+  //   row-gutter: row-gutter,
+  //   info-key("作者姓名"),
+  //   info-long-value("author", info.author),
+  //   info-key("专　　业"),
+  //   info-long-value("major", info.major),
+  //   info-key("指导教师"),
+  //   info-long-value("supervisor", info.supervisor.sum()),
+  // )
+  [
+    #indent#info-key("作者姓名")
+    #h(column-gutter)
+    #info-long-value("author", info.author)
+    #linebreak()
+    #indent #info-key("专　　业")
+    #h(column-gutter)
+    #info-long-value("major", info.major)
+    #linebreak()
+    #indent #info-key("指导教师")
+    #h(column-gutter)
+    #info-long-value("supervisor", info.supervisor.sum())
+  ]
+
   v(字号.小四*5)
   set align(center)
   text(font:字体.宋体,size:字号.小二,weight: "bold",info.submit-date)

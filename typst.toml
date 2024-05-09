@@ -1,12 +1,12 @@
 [package]
-name = "modern-nju-thesis"
-version = "0.3.3"
+name = "modern-yju-thesis"
+version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["OrangeX4"]
+authors = ["Woodman3"]
 license = "MIT"
-description = "南京大学学位论文模板。Modern Nanjing University Thesis."
-repository = "https://github.com/nju-lug/modern-nju-thesis"
-keywords = ["Nanjing University", "thesis"]
+description = "燕山大学学位论文模板。Modern Yanshan University Thesis."
+repository = "https://github.com/Woodman3/modern-ysu-thesis"
+keywords = ["Yanshan University", "thesis"]
 categories = ["thesis"]
 exclude = ["imgs"]
 
