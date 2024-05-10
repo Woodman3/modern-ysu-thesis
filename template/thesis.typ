@@ -1,4 +1,4 @@
-#import "../lib.typ": documentclass, indent
+#import "@preview/modern-ysu-thesis:0.1.0": documentclass, indent
 
 #let (
   // 布局函数
