@@ -84,7 +84,7 @@
       如果工作不正常，可以考虑换为简单关键词替换，即注释这段情况，取消 13 行 mapping 内 `译` 条目的注释。
       */
       reptext = reptext.replace(
-        regex("\].+?译"),
+        regex("$.+?译"),
         itt => {
           // 我想让上面这一行匹配变成非贪婪的，但加问号后没啥效果？
           if itt.text.replace(regex(",\s?译"), "").find(",") != none {

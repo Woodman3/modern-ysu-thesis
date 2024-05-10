@@ -7,6 +7,9 @@
 >
 > 本模板是民间模板，**可能不被学校认可**，正式使用过程中请做好随时将内容迁移至 Word 或 LaTeX 的准备
 
+# QuickStart
+
+clone 本项目后，照着 template\thesis.typ 下写就行
 
 ## 致谢
 
