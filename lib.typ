@@ -1,8 +1,3 @@
-// 南京大学学位论文模板 modern-nju-thesis
-// Author: https://github.com/OrangeX4
-// Repo: https://github.com/nju-lug/modern-nju-thesis
-// 在线模板可能不会更新得很及时，如果需要最新版本，请关注 Repo
-
 #import "layouts/doc.typ": doc
 #import "layouts/preface.typ": preface
 #import "layouts/mainmatter.typ": mainmatter
@@ -32,6 +27,7 @@
 #import "utils/style.typ": 字号
 
 #import "layouts/page-header.typ": page-header
+#import "pages/conclusion.typ":conclusion
 
 // 使用函数闭包特性，通过 `documentclass` 函数类进行全局信息配置，然后暴露出拥有了全局配置的、具体的 `layouts` 和 `templates` 内部函数。
 #let documentclass(
@@ -304,5 +300,14 @@
         ..args,
       )
     },
+    // 结论页
+    conclusion: (..args) => {
+      conclusion(
+        anonymous: anonymous,
+        twoside: twoside,
+        ..args,
+      )
+    },
+
   )
 }
